@@ -32,11 +32,10 @@ Future<void> main(List<String> args) async {
   final name = args.isNotEmpty ? args[0] : 'world';
 
   try {
-    final response = await stub.sayHello(
-      HelloRequest()..name = name,
-      options: CallOptions(compression: const GzipCodec()),
-    );
+    final response = await stub.sayHello(HelloRequest()..name = name);
     print('Greeter client received: ${response.message}');
+    final response2 = await stub.sayHelloAgain(HelloRequest()..name = name);
+    print('Greeter client received: ${response2.message}');
   } catch (e) {
     print('Caught error: $e');
   }

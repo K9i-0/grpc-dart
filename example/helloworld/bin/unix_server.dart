@@ -24,6 +24,12 @@ class GreeterService extends GreeterServiceBase {
   Future<HelloReply> sayHello(ServiceCall call, HelloRequest request) async {
     return HelloReply()..message = 'Hello, ${request.name}!';
   }
+
+  @override
+  Future<HelloReply> sayHelloAgain(
+      ServiceCall call, HelloRequest request) async {
+    return HelloReply()..message = 'Hello again, ${request.name}!';
+  }
 }
 
 Future<void> main(List<String> args) async {
